@@ -3,35 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فيلم التجربة الجديدة 2</title>
+    <title>بث مباشر - ناشيونال جيوغرافيك</title>
     
     <!-- OpenGraph Meta Tags -->
-    <meta property="og:title" content="فيلم التجربة الجديدة 2">
+    <meta property="og:title" content="بث مباشر - ناشيونال جيوغرافيك">
     <meta property="og:image" content="https://media0070.elcinema.com/uploads/_640x_0ab5d5c86c6faf1f0de9b6eea920ef29c124c76f37783730194906a1c91fd9bd.jpg">
-    <meta property="og:description" content="فيلم درامي مشوق مليء بالإثارة والتشويق.">
-    <meta property="og:type" content="video.movie">
-    <meta property="og:url" content="https://aflam-cdn-cash-32-r3d.dialymotion.online/yh5chg6qptikjnl75zekr6jswszz6ra2wrp3mk4tans67h55enbcz75qqkzq/v.mp4">
-    <meta property="video:duration" content="0"> <!-- سيتم تحديثها تلقائيًا -->
-    <meta property="video:release_date" content="2025-01-01">
-    <meta property="video:tag" content="دراما">
+    <meta property="og:description" content="بث مباشر لقناة ناشيونال جيوغرافيك بجودة عالية.">
+    <meta property="og:type" content="video.other">
+    <meta property="og:url" content="https://vo-live-media.cdb.cdn.orange.com/Content/Channel/NationalGeographicHDChannel/HLS/index.m3u8">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" id="json-ld-data">
     {
         "@context": "https://schema.org",
-        "@type": "Movie",
-        "name": "فيلم التجربة الجديدة 2",
+        "@type": "BroadcastEvent",
+        "name": "بث مباشر - ناشيونال جيوغرافيك",
         "image": "https://media0070.elcinema.com/uploads/_640x_0ab5d5c86c6faf1f0de9b6eea920ef29c124c76f37783730194906a1c91fd9bd.jpg",
-        "description": "فيلم درامي مشوق مليء بالإثارة والتشويق.",
-        "url": "https://aflam-cdn-cash-32-r3d.dialymotion.online/yh5chg6qptikjnl75zekr6jswszz6ra2wrp3mk4tans67h55enbcz75qqkzq/v.mp4",
-        "duration": "PT0S", 
-        "contentSize": "1500MB", 
-        "director": {
-            "@type": "Person",
-            "name": "مخرج مجهول"
-        },
-        "datePublished": "2025-01-01",
-        "genre": "دراما"
+        "description": "بث مباشر لقناة ناشيونال جيوغرافيك بجودة عالية.",
+        "url": "https://vo-live-media.cdb.cdn.orange.com/Content/Channel/NationalGeographicHDChannel/HLS/index.m3u8",
+        "publication": {
+            "@type": "BroadcastService",
+            "name": "National Geographic HD"
+        }
     }
     </script>
     
@@ -39,7 +32,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var player = jwplayer("video-container").setup({
-                file: "https://aflam-cdn-cash-32-r3d.dialymotion.online/yh5chg6qptikjnl75zekr6jswszz6ra2wrp3mk4tans67h55enbcz75qqkzq/v.mp4",
+                file: "https://vo-live-media.cdb.cdn.orange.com/Content/Channel/NationalGeographicHDChannel/HLS/index.m3u8",
                 image: "https://media0070.elcinema.com/uploads/_640x_0ab5d5c86c6faf1f0de9b6eea920ef29c124c76f37783730194906a1c91fd9bd.jpg",
                 width: "100%",
                 height: "100%",
@@ -48,20 +41,7 @@
                 androidhls: true,
                 hlshtml: true,
                 primary: "html5",
-                startparam: "start"
-            });
-            
-            player.on("ready", function() {
-                setTimeout(function() {
-                    var duration = player.getDuration();
-                    if (duration > 0) {
-                        document.querySelector('meta[property="video:duration"]').setAttribute("content", duration);
-                        
-                        let jsonData = JSON.parse(document.getElementById("json-ld-data").textContent);
-                        jsonData.duration = "PT" + Math.floor(duration / 3600) + "H" + Math.floor((duration % 3600) / 60) + "M";
-                        document.getElementById("json-ld-data").textContent = JSON.stringify(jsonData);
-                    }
-                }, 3000); // تأخير بسيط لضمان تحميل المدة
+                live: true
             });
         });
     </script>
@@ -94,12 +74,12 @@
 </head>
 <body>
     <div class="container">
-        <h1>فيلم التجربة الجديدة 2</h1>
-        <img src="https://media0070.elcinema.com/uploads/_640x_0ab5d5c86c6faf1f0de9b6eea920ef29c124c76f37783730194906a1c91fd9bd.jpg" alt="بوستر الفيلم">
-        <p>فيلم درامي مشوق مليء بالإثارة والتشويق.</p>
+        <h1>بث مباشر - ناشيونال جيوغرافيك</h1>
+        <img src="https://media0070.elcinema.com/uploads/_640x_0ab5d5c86c6faf1f0de9b6eea920ef29c124c76f37783730194906a1c91fd9bd.jpg" alt="بوستر القناة">
+        <p>بث مباشر لقناة ناشيونال جيوغرافيك بجودة عالية.</p>
         <div id="video-container"></div>
         <br>
-        <a href="https://aflam-cdn-cash-32-r3d.dialymotion.online/yh5chg6qptikjnl75zekr6jswszz6ra2wrp3mk4tans67h55enbcz75qqkzq/v.mp4" target="_blank">مشاهدة الفيلم</a>
+        <a href="https://vo-live-media.cdb.cdn.orange.com/Content/Channel/NationalGeographicHDChannel/HLS/index.m3u8" target="_blank">مشاهدة البث المباشر</a>
     </div>
 </body>
 </html>
