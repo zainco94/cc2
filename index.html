@@ -12,41 +12,34 @@
     <meta property="og:type" content="video.other">
     <meta property="og:url" content="https://vo-live-media.cdb.cdn.orange.com/Content/Channel/NationalGeographicHDChannel/HLS/index.m3u8">
     
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json" id="json-ld-data">
-    {
-        "@context": "https://schema.org",
-        "@type": "BroadcastEvent",
-        "name": "بث مباشر - ناشيونال جيوغرافيك",
-        "image": "https://media0070.elcinema.com/uploads/_640x_0ab5d5c86c6faf1f0de9b6eea920ef29c124c76f37783730194906a1c91fd9bd.jpg",
-        "description": "بث مباشر لقناة ناشيونال جيوغرافيك بجودة عالية.",
-        "url": "https://vo-live-media.cdb.cdn.orange.com/Content/Channel/NationalGeographicHDChannel/HLS/index.m3u8",
-        "publication": {
-            "@type": "BroadcastService",
-            "name": "National Geographic HD"
-        }
-    }
-    </script>
-    
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var video = document.getElementById("video-player");
             var videoSrc = "https://vo-live-media.cdb.cdn.orange.com/Content/Channel/NationalGeographicHDChannel/HLS/index.m3u8";
             
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(videoSrc);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    video.play();
-                });
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = videoSrc;
-                video.addEventListener('loadedmetadata', function() {
-                    video.play();
-                });
+            function startStreaming() {
+                if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(videoSrc);
+                    hls.attachMedia(video);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        video.play();
+                    });
+                    hls.on(Hls.Events.ERROR, function(event, data) {
+                        if (data.fatal) {
+                            setTimeout(startStreaming, 3000); // إعادة التحميل بعد 3 ثواني
+                        }
+                    });
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = videoSrc;
+                    video.addEventListener('loadedmetadata', function() {
+                        video.play();
+                    });
+                }
             }
+            
+            startStreaming();
         });
     </script>
     
@@ -97,10 +90,10 @@
     
     <script>
         function updateViewerCount() {
-            var count = Math.floor(Math.random() * (500 - 50) + 50); // عدد مشاهدين عشوائي
+            var count = Math.floor(Math.random() * (500 - 50) + 50);
             document.getElementById("viewer-count").innerText = count;
         }
-        setInterval(updateViewerCount, 5000); // تحديث كل 5 ثواني
+        setInterval(updateViewerCount, 5000);
         updateViewerCount();
     </script>
 </body>
