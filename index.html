@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فيلم التجربة الجديدة</title>
+    <title>فيلم التجربة الجديدة 2</title>
     
     <!-- OpenGraph Meta Tags -->
-    <meta property="og:title" content="فيلم التجربة الجديدة">
+    <meta property="og:title" content="فيلم التجربة الجديدة 2">
     <meta property="og:image" content="https://media0070.elcinema.com/uploads/_640x_0ab5d5c86c6faf1f0de9b6eea920ef29c124c76f37783730194906a1c91fd9bd.jpg">
     <meta property="og:description" content="فيلم درامي مشوق مليء بالإثارة والتشويق.">
     <meta property="og:type" content="video.movie">
@@ -20,7 +20,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Movie",
-        "name": "فيلم التجربة الجديدة",
+        "name": "فيلم التجربة الجديدة 2",
         "image": "https://media0070.elcinema.com/uploads/_640x_0ab5d5c86c6faf1f0de9b6eea920ef29c124c76f37783730194906a1c91fd9bd.jpg",
         "description": "فيلم درامي مشوق مليء بالإثارة والتشويق.",
         "url": "https://aflam-cdn-cash-32-r3d.dialymotion.online/yh5chg6qptikjnl75zekr6jswszz6ra2wrp3mk4tans67h55enbcz75qqkzq/v.mp4",
@@ -51,14 +51,17 @@
                 startparam: "start"
             });
             
-            player.on("durationChange", function(duration) {
-                if (duration > 0) {
-                    document.querySelector('meta[property="video:duration"]').setAttribute("content", duration);
-                    
-                    let jsonData = JSON.parse(document.getElementById("json-ld-data").textContent);
-                    jsonData.duration = "PT" + Math.floor(duration / 3600) + "H" + Math.floor((duration % 3600) / 60) + "M";
-                    document.getElementById("json-ld-data").textContent = JSON.stringify(jsonData);
-                }
+            player.on("ready", function() {
+                setTimeout(function() {
+                    var duration = player.getDuration();
+                    if (duration > 0) {
+                        document.querySelector('meta[property="video:duration"]').setAttribute("content", duration);
+                        
+                        let jsonData = JSON.parse(document.getElementById("json-ld-data").textContent);
+                        jsonData.duration = "PT" + Math.floor(duration / 3600) + "H" + Math.floor((duration % 3600) / 60) + "M";
+                        document.getElementById("json-ld-data").textContent = JSON.stringify(jsonData);
+                    }
+                }, 3000); // تأخير بسيط لضمان تحميل المدة
             });
         });
     </script>
@@ -91,7 +94,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>فيلم التجربة الجديدة</h1>
+        <h1>فيلم التجربة الجديدة 2</h1>
         <img src="https://media0070.elcinema.com/uploads/_640x_0ab5d5c86c6faf1f0de9b6eea920ef29c124c76f37783730194906a1c91fd9bd.jpg" alt="بوستر الفيلم">
         <p>فيلم درامي مشوق مليء بالإثارة والتشويق.</p>
         <div id="video-container"></div>
